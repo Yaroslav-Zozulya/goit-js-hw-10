@@ -7,7 +7,6 @@ export function renderCountryCard(date) {
    * Генерируем HTML фрагмент
    * Вставляем в вёрстку
    */
-  console.log(date);
   const markup = date
     .map(
       element => `
