@@ -1,49 +1,17 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { refs } from './get-refs';
+import { renderCountryCard } from './renderCountryCard';
+import { renderCountryList } from './renderCountryList';
 
-function createLanguagesList(response) {
-  let languages = [];
-  response.map(country => {
-    for (let i in country.languages) {
-      languages.push(country.languages[i]);
-    }
-  });
-  return languages.join();
-}
-
-function renderCountryList(response) {
-  if (response.length < 10) {
-    const markup = response
-      .map(
-        element =>
-          `<li class="country-list-item"><img src="${element.flags.svg}" class="country-list-img">${element.name.common}<li>`,
-      )
-      .join(' ');
-
-    refs.countryList.innerHTML = markup;
-    return response;
+function renderInterface(date) {
+  if (date.length > 1 && date.length < 10) {
+    renderCountryList(date);
   }
-  Notify.info('Too many matches found. Please enter a more specific name.');
-  return response;
-}
-
-function renderCountryCard(response) {
-  if (response.length === 1) {
-    const markup = response
-      .map(
-        element => `
-      <li>
-        <h1><img src="${element.flags.svg}" class="country-list-img">${element.name.common}</h1>
-        <p>Capital: ${element.capital}</p>
-        <p>Population: ${element.population}</p>
-        <p>Languages: ${createLanguagesList(response)}</p>
-    </li>`,
-      )
-      .join(' ');
-    refs.countryList.innerHTML = markup;
-    return response;
+  if (date.length === 1) {
+    renderCountryCard(date);
   }
-  return response;
+  if (date.length > 10) {
+    Notify.info('Too many matches found. Please enter a more specific name.');
+  }
 }
 
-export { renderCountryList, renderCountryCard };
+export { renderInterface };

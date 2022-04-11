@@ -1,5 +1,5 @@
 import { fetchCountries } from './fetchCountries';
-import { renderCountryList, renderCountryCard } from './render-interface';
+import { renderInterface } from './render-interface';
 import { refs } from './get-refs';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -19,5 +19,5 @@ function onSearch() {
     return;
   }
 
-  fetchCountries(name).then(renderCountryList).then(renderCountryCard);
+  fetchCountries(name).then(renderInterface);
 }
