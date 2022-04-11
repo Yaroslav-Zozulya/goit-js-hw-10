@@ -14,4 +14,4 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{}],"WmIM":[function(require,module,exports) {
 "use strict";var e=require("./fetchCountries"),r=require("./render-interface"),n=require("./get-refs"),i=require("notiflix/build/notiflix-notify-aio"),t=require("lodash.debounce");function o(){if(name=n.refs.searchCountry.value.trim(),""!==name)return 1===name.length?(i.Notify.info("Too many matches found. Please enter a more specific name."),void(n.refs.countryList.innerHTML="")):void(0,e.fetchCountries)(name).then(r.renderCountryList).then(r.renderCountryCard);n.refs.countryList.innerHTML=""}n.refs.searchCountry.addEventListener("input",t(o,300));
 },{"./fetchCountries":"irxn","./render-interface":"rt7P","./get-refs":"EGsz","notiflix/build/notiflix-notify-aio":"MeeU","lodash.debounce":"PZFh"}]},{},["WmIM"], null)
-//# sourceMappingURL=/parcel-project-template/countrySearch.acb63ab5.js.map
+//# sourceMappingURL=/goit-js-hw-10/countrySearch.acb63ab5.js.map
