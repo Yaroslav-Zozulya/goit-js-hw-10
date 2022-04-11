@@ -2,6 +2,12 @@ import { createLanguagesSting } from './helpers/createLanguagesSting';
 import { refs } from './get-refs';
 
 export function renderCountryCard(date) {
+  /*
+   * Получаем массив с одним объектом
+   * Генерируем HTML фрагмент
+   * Вставляем в вёрстку
+   */
+  console.log(date);
   const markup = date
     .map(
       element => `

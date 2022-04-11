@@ -1,5 +1,11 @@
 import { refs } from './get-refs';
 export function renderCountryList(response) {
+  /*
+   * Получаем массив объектов
+   * Перебираем массив по элементу
+   * Генерируем HTML фрагмент
+   * Вставляем в вёрстку
+   */
   const markup = response
     .map(
       element =>
@@ -8,5 +14,4 @@ export function renderCountryList(response) {
     .join(' ');
 
   refs.countryList.innerHTML = markup;
-  return response;
 }

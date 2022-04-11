@@ -8,6 +8,11 @@ var debounce = require('lodash.debounce');
 refs.searchCountry.addEventListener('input', debounce(onSearch, 300));
 
 function onSearch() {
+  /*
+   * Проверяем значение инпута
+   * Если пользователь ввёл больше одного символа отправляем запрос
+   */
+
   name = refs.searchCountry.value.trim();
   if (name === '') {
     refs.countryList.innerHTML = '';
